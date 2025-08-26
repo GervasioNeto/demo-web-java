@@ -13,9 +13,27 @@ public class Aluno {
     private Long id;
 
     private String nome;
+    private Date dataNascimento;
     private String email;
     private String senha;
-    private Date dataNascimento;
+
+    public Aluno() {
+
+    }
+
+    public Aluno(Long id, String email, String senha) {
+        this.id = id;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Aluno(Long id, String nome, Date dataNascimento, String email, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.senha = senha;
+    }
 
 
     public Long getId() {
