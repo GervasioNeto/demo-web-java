@@ -1,19 +1,19 @@
 package com.example.demo.dto;
 
-public class AlunoDTO {
+public class ClienteDTO {
 
     private Long id;
     private String nome;;
     private String email;
+    private String telefone;
 
-    public AlunoDTO(){
+    public ClienteDTO() {}
 
-    }
-
-    public AlunoDTO(Long id, String nome, String email) {
+    public ClienteDTO(Long id, String nome, String email, String telefone) {
         this.id = id;
         this.nome = nome;
         this.email = email;
+        this.telefone = telefone;
     }
 
     public Long getId() {
@@ -38,5 +38,13 @@ public class AlunoDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }
