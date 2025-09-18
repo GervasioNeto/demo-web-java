@@ -1,9 +1,6 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Endereco {
@@ -11,15 +8,18 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String logradouro;
-    private String numero;
+    private int numero;
     private String complemento;
     private String cep;
 
+    @OneToOne
+    @JoinColumn(name = "aluno_id", referencedColumnName = "id")
+    private Aluno aluno;
+
     public Endereco() {}
 
-    public Endereco(Long id, String logradouro, String numero, String complemento, String cep) {
+    public Endereco(Long id, String logradouro, int numero, String complemento, String cep) {
         this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -43,11 +43,11 @@ public class Endereco {
         this.logradouro = logradouro;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -65,5 +65,13 @@ public class Endereco {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 }
